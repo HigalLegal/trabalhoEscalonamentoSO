@@ -11,6 +11,9 @@ import model.entities.Processo;
 
 public class ListaDeProcessosFactory {
 	
+	/*
+	 * Esse método retorna uma lista de processos já preenchida com os atributos vindo do arquivo.
+	 * */
 	public static List<Processo> listaPreenchida() {
 		String caminho = "exemplo.tsv";
 

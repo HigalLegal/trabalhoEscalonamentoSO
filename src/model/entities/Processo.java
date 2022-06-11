@@ -2,6 +2,9 @@ package model.entities;
 
 import model.interfaces.ModeloCalculo;
 
+/*
+ * Classe para armazenar os dados vindo do arquivo.
+ * */
 public class Processo extends Thread {
 
 	private Integer codigo;

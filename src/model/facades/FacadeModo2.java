@@ -9,10 +9,19 @@ import java.util.stream.Collectors;
 
 import model.entities.Processo;
 
+/*
+ * Classe criada para ter todos os métodos de execução de escalonamento, para que
+ * o método main não tenha várias linhas de código. Representa o modo 2 de execução.
+ * */
 public class FacadeModo2 {
 
 	private final static int NUMERO_DE_CASAS_DECIMAIS = 2;
 
+	// ----------------------------------------------------------------------------------------------
+	
+	/*
+	 * Método auxiliar, que retorna o tempo de retorno total.
+	 * */
 	private Integer tempoDeRetornoTotal() {
 		List<Processo> processos = listaPreenchida();
 		List<Integer> tempoDeChegada = processos.stream().map((var processo) -> processo.getTempoDeChegada())
@@ -32,6 +41,9 @@ public class FacadeModo2 {
 
 	// ----------------------------------------------------------------------------------------------
 
+	/*
+	 * Método auxiliar, que retorna o número de trocas de contextos. Recebe uma lista de inteiros.
+	 * */
 	private int trocasDeContexto(List<Integer> lista) {
 		int aux;
 		int total = 0;
@@ -59,7 +71,10 @@ public class FacadeModo2 {
 
 	// ----------------------------------------------------------------------------------------------
 
-	public Integer tempoDeEsperaTotal() {
+	/*
+	 * Método auxiliar, que retorna o tempo de espera total.
+	 * */
+	private Integer tempoDeEsperaTotal() {
 		List<Processo> processos = listaPreenchida();
 		List<Integer> tempoDeChegada = processos.stream().map((var processo) -> processo.getTempoRajada())
 				.collect(Collectors.toList());
@@ -77,6 +92,9 @@ public class FacadeModo2 {
 
 	// ----------------------------------------------------------------------------------------------
 
+	/*
+	 * Calcula a média do tempo de retorno, fazendo uso do método auxiliar "tempoDeRetornoTotal".
+	 * */
 	public BigDecimal calculoTempoMedioDoRetorno() {
 
 		BigDecimal tempoTotalDeRetorno = BigDecimal.valueOf(tempoDeRetornoTotal());
@@ -87,6 +105,9 @@ public class FacadeModo2 {
 
 	// ----------------------------------------------------------------------------------------------
 
+	/*
+	 * Calcula a média do tempo de espera, fazendo uso do método auxiliar "tempoDeEsperaTotal".
+	 * */
 	public BigDecimal calculoTempoMedioDeEspera() {
 
 		BigDecimal tempoTotalDeRetorno = BigDecimal.valueOf(tempoDeEsperaTotal());
@@ -97,6 +118,9 @@ public class FacadeModo2 {
 
 	// ----------------------------------------------------------------------------------------------
 
+	/*
+	 * Método que retorna o tempo total de processamento.
+	 * */
 	public Long tempoTotalDeProcessamento() {
 		long startTime = System.currentTimeMillis();
 		listaPreenchida();
@@ -107,6 +131,10 @@ public class FacadeModo2 {
 
 	// ----------------------------------------------------------------------------------------------
 
+	/*
+	 * Método que calcula a troca de contextos por prioridade preemptiva.
+	 * Faz uso do método auxiliar "trocasDeContexto".
+	 * */
 	public Integer quantidadeTrocaDeContextosPorPrioridadePreemptiva() {
 		List<Processo> processos = listaPreenchida();
 
@@ -119,6 +147,10 @@ public class FacadeModo2 {
 
 	// ----------------------------------------------------------------------------------------------
 
+	/*
+	 * Método que calcula a troca de contextos por tempo de chegada preemptiva.
+	 * Faz uso do método auxiliar "trocasDeContexto".
+	 * */
 	public Integer quantidadeTrocaDeContextosPorTempoDeChegadaPreemptiva() {
 		List<Processo> processos = listaPreenchida();
 
