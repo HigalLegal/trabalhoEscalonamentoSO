@@ -49,6 +49,11 @@ public class FacadeModo1 {
 	 * */
 	private void esvaziarTempoDeRajada(List<Processo> processos) {
 		int contador = 0;
+		
+		System.out.println("Antes da primeira execução:\n");
+		processos.forEach((var processo) -> {
+			System.out.println(processo);
+		});
 
 		do {
 			processos.forEach((var processo) -> {

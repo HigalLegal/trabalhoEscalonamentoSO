@@ -20,6 +20,7 @@ public class Modo2 {
 		System.out.println("Tempo médio de espera: " + tempoDeEsperaMedia);
 		System.out.println("Troca de contextos (prioridade preemptiva): " + trocaDeContextoPrioridade);
 		System.out.println("Troca de contextos (chegada preemptiva): " + trocaDeContextoChegada);
+		
 	}
 
 }
