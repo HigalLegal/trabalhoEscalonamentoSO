@@ -10,10 +10,11 @@ import java.util.List;
 import model.entities.Processo;
 
 public class ListaDeProcessosFactory {
-	
+
 	/*
-	 * Esse método retorna uma lista de processos já preenchida com os atributos vindo do arquivo.
-	 * */
+	 * Esse método retorna uma lista de processos já preenchida com os atributos
+	 * vindo do arquivo.
+	 */
 	public static List<Processo> listaPreenchida() {
 		String caminho = "exemplo.tsv";
 
@@ -23,17 +24,28 @@ public class ListaDeProcessosFactory {
 
 			String linha = bufferedReader.readLine();
 
+			int i = 0;
+
 			while (linha != null) {
-				List<String> dados = Arrays.asList(linha.split("	"));
 
-				String id = dados.get(0);
-				Integer tempoDeChegada = Integer.parseInt(dados.get(1));
-				String tempoRajada = dados.get(2);
-				Integer prioridade = Integer.parseInt(dados.get(3));
+				if (i == 0) {
+					i++;
+					linha = bufferedReader.readLine();
+					continue;
+				} else {
 
-				processos.add(new Processo(id, tempoDeChegada, tempoRajada, prioridade));
+					List<String> dados = Arrays.asList(linha.split("	"));
 
-				linha = bufferedReader.readLine();
+					String id = dados.get(0);
+					Integer tempoDeChegada = Integer.parseInt(dados.get(1));
+					String tempoRajada = dados.get(2);
+					Integer prioridade = Integer.parseInt(dados.get(3));
+
+					processos.add(new Processo(id, tempoDeChegada, tempoRajada, prioridade));
+
+					linha = bufferedReader.readLine();
+				}
+				
 			}
 
 			return processos;
